@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Create Announcement
+{% endblock title %}
+
+{% block body %}
+
+
+<h2>Create Announcement</h2>
+<form method="post" action="{% url 'create_announcement' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit">Create Announcement</button>
+</form>
+{% endblock body%}

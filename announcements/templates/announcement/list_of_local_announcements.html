@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Local Announcements
+{% endblock title %}
+
+{% block body %}
+
+<h1>{{ location }}</h1>
+
+{% if announcements %}
+    <ul>
+        {% for announcement in announcements %}
+            <li>
+                <strong>{{ announcement.title }}</strong><br>
+                {{ announcement.content }}<br>
+                <!-- Add any other fields you want to display -->
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No local announcements available for this location.</p>
+{% endif %}
+
+{% endblock body %}

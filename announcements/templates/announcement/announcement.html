@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Announcement Detail
+{% endblock title %}
+
+{% block body %}
+
+
+<h2>Announcement Detail</h2>
+
+<p>Title: {{ announcement.title }}</p>
+<p>Content: {{ announcement.content }}</p>
+<p>Access: {{ announcement.access }}</p>
+<p>Location: {{ announcement.location }}</p>
+
+<p>Created by: {{ announcement.user_profile.username }}</p>
+<p>Created at: {{ announcement.create_date }}</p>
+
+{% endblock body%}
+
+
+
+

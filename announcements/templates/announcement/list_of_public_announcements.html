@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Public Announcements
+{% endblock title %}
+
+{% block body %}
+<h2>Announcement Detail</h2>
+
+
+<ul>
+    {% for announcement in announcements %}
+        <li>
+            <strong>{{ announcement.title }}</strong> - {{ announcement.create_date }}<br>
+            {{ announcement.content }}<br>
+            Created by: {{ announcement.user_profile.username }}<br>
+            <a href="/announcement/{{ announcement.id }}/">View Details</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock body %}

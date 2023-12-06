@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+User Announcements 
+{% endblock title %}
+
+{% block body %}
+
+<h2>Your Announcements</h2>
+
+<ul>
+    {% for announcement in announcements %}
+        <li>
+            {{ announcement.title }}
+            <a href="/announcement/{{ announcement.id }}/">Open</a>
+            <a href="/announcement/{{ announcement.id }}/update">Edit</a>
+            <a href="/announcement/{{ announcement.id }}/delete">Delete</a>
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock body%}
+
+
+
+
