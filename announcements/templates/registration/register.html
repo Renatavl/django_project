@@ -1,10 +1,44 @@
 {% extends 'base.html' %}
-
+{% block title %}
+Register
+{% endblock title %}
 {% block body %}
+
+
+<style>
+    .root_register {
+      margin: 30px auto;
+      width: 40%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 25px;
+      
+  
+      border-radius: 8px;
+      background: #FFF;
+  
+      box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.10);
+    }
+  
+    input{
+        width: 100%;
+    }
+
+    form > p {
+        width: 100%;
+    }
+  </style>
+
+<div class="wrapper_center">
+
+    <div class="root_register">
+   
   <h2>Реєстрація</h2>
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Зареєструватися</button>
-  </form>
+    <button class="mBtn" type="submit">Зареєструватися</button>
+  </form> </div>
+</div>
 {% endblock body%}

@@ -34,7 +34,7 @@ def get_announcement_by_id(request, id):
     announcement = Announcement.objects.get(id=id)
 
     # Перевіряємо доступ до анонсу
-    if announcement.access == 'public' or (request.user.is_authenticated and request.user == announcement.user_profile):
+    if announcement.access == 'public' or (request.user.is_authenticated and request.user.location == announcement.location):
         return render(request, 'announcement/announcement.html', {'announcement': announcement})
     else:
         return render(request, '404.html')

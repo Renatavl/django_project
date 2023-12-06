@@ -5,15 +5,56 @@ Local Announcements
 {% endblock title %}
 
 {% block body %}
+<style>
+    .root_list {
+      margin: 30px auto;
+      width: 85vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 25px;
+      
+  
+      border-radius: 8px;
+      background: #FFF;
+  
+      box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.10);
+    }
+  
+  
 
+    .list li{
+        margin-bottom: 5px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(6,1fr);
+        gap:10px;
+        font-weight: 500;
+        font-size: 18px;
+        padding: 2px 10px;
+    }
+
+    .list a {
+        text-align: end;
+    }
+    .list li:nth-child(even) {background: #fcfcfc;}
+    .list li:nth-child(odd) {background: #ededed;}
+  </style>
+
+<div class="wrapper_center">
+    <div class="root_list">
 <h1>{{ location }}</h1>
 
 {% if announcements %}
-    <ul>
+    <ul class="list">
         {% for announcement in announcements %}
             <li>
-                <strong>{{ announcement.title }}</strong><br>
-                {{ announcement.content }}<br>
+                <strong>{{ announcement.title }}</strong>
+                <span>{{ announcement.content }}</span>
+                <span>{{ announcement.access }}</span>
+                <span>Created by: {{ announcement.user_profile.username }}</span>
+                <span>{{ announcement.create_date }}</span>
+                <a href="/announcement/{{ announcement.id }}/">View Details</a>
                 <!-- Add any other fields you want to display -->
             </li>
         {% endfor %}
@@ -21,5 +62,5 @@ Local Announcements
 {% else %}
     <p>No local announcements available for this location.</p>
 {% endif %}
-
+    </div></div>
 {% endblock body %}

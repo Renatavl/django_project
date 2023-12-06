@@ -5,7 +5,35 @@ User Announcements
 {% endblock title %}
 
 {% block body %}
+<style>
+    .root_update {
+      margin: 30px auto;
+      width: fit-content;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 25px;
+  
+      border-radius: 8px;
+      background: #fff;
+  
+      box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.1);
+    }
+  
+    input {
+      width: 100%;
+    }
+  
+    form{
+        width: 100%;
+    }
+    form > p {
+      width: 100%;
+    }
+  </style>
 
+<div class="wrapper_center">
+    <div class="root_update">
 <h2>Your Announcements</h2>
 
 <form method="post" action="{% url 'update_announcement' id=announcement.id %}">
@@ -19,9 +47,10 @@ User Announcements
         <option value="public" {% if announcement.access == 'public' %}selected{% endif %}>Public</option>
         <option value="local" {% if announcement.access == 'local' %}selected{% endif %}>Local</option>
     </select><br>
-    <input type="submit" value="Update Announcement">
+    <button class="mBtn" type="submit">Update Announcement</button>
 </form>
-
+</div>
+</div>
 {% endblock body%}
 
 

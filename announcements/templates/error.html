@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 {% block title %}
-404
+Error
 {% endblock title %}
 {% block body %}
-  <h2>Something went wrong</h2>
+<div>
+    <h1>Error</h1>
+    <p>{{ error_message }}</p>
+</div>
 {% endblock body %}

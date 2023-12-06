@@ -6,11 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <title>Short Note Hub | {% block title %}{% endblock title %}</title>
+    <title>Announcements web | {% block title %}{% endblock title %}</title>
     <link rel="shortcut icon" type="image/jpg" href="/static/favicon.ico"/>
     <style>
+        body {
+            background-color: #FAFAFA;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        h2{
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap:10px;
+        }
+        form label{
+            width: 100%;
+        }
+        form input{
+            width: 100%;
+        }
         input {
             border: none;
+            border-bottom: 1px solid black;
+        }
+        .mBtn {
+            padding: 5px 10px;
+            font-weight: 500;
+            border-radius: 8px;
+            background: #0D359A;
+            color: white
+        }   
+        .wrapper_center{
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     </style>
 </head>
@@ -18,7 +57,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/">Short Note Hub</a>
+        <a class="navbar-brand" href="/">Announcements Web</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -55,7 +94,6 @@
                         Actions
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="/notes">My Notes</a></li>
                         {% if note %}
 
                         {% endif %}
