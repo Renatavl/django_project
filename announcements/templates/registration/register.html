@@ -8,7 +8,7 @@ Register
 <style>
     .root_register {
       margin: 30px auto;
-      width: 40%;
+      width: 30%;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -28,17 +28,41 @@ Register
     form > p {
         width: 100%;
     }
+
+    .helptext {
+        display: none;
+    }
+
+    label {
+    color: #023E8A;
+    font-weight: 600;
+    }
+
+    .form_title {
+    color: #023E8A;
+    margin-bottom: 40px;
+    }
+
+    .mBtn{
+    margin: auto;
+    background-color: #023E8A;
+    border-color: unset;
+    }
+
+    form input {
+    border-color: #023E8A;
+    }
   </style>
 
 <div class="wrapper_center">
 
     <div class="root_register">
    
-  <h2>Реєстрація</h2>
+  <h2 class = "form_title">Registration</h2>
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button class="mBtn" type="submit">Зареєструватися</button>
+    <button class="mBtn" type="submit">Submit</button>
   </form> </div>
 </div>
 {% endblock body%}

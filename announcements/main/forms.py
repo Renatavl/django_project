@@ -11,6 +11,12 @@ class RegistrationForm(UserCreationForm):
         model = UserProfile
         fields = ('username', 'password1', 'password2', 'location')
 
+    def __init__(self, *args, **kwargs):
+        super(RegistrationForm, self).__init__(*args, **kwargs)
+        
+        # Set help_text for password1 field to an empty string
+        self.fields['password1'].help_text = ''
+
 
 class LoginForm(AuthenticationForm):
     class Meta:

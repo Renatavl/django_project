@@ -30,6 +30,41 @@ User Announcements
     form > p {
       width: 100%;
     }
+
+    h2 {
+      color: #023E8A;
+      margin-bottom: 25px;
+    }
+
+    label {
+    color: #023E8A;
+    font-weight: 600;
+    }
+
+    form input {
+      color: #023E8A;
+      border-color: #023E8A;
+    }
+
+    textarea {
+    border-color: #023E8A;
+    color: #023E8A;
+    padding-left: 2px;
+    height: 100px;
+    width: 100%;
+  }  
+  
+  select {
+    border-color: #023E8A;
+  }
+
+  option {
+    color: #023E8A;;
+  }
+
+  .mBtn {
+    border-color: unset;
+  }
   </style>
 
 <div class="wrapper_center">
@@ -47,7 +82,7 @@ User Announcements
         <option value="public" {% if announcement.access == 'public' %}selected{% endif %}>Public</option>
         <option value="local" {% if announcement.access == 'local' %}selected{% endif %}>Local</option>
     </select><br>
-    <button class="mBtn" type="submit">Update Announcement</button>
+    <button class="mBtn" type="submit">Update</button>
 </form>
 </div>
 </div>

@@ -1,24 +1,74 @@
-{% extends 'base.html' %}
-
-{% block title %}
-Announcement Detail
-{% endblock title %}
+{% extends 'base.html' %} 
+{% block title %} 
+Announcement Details 
+{% endblock title %} 
 
 {% block body %}
+<style>
+    .root_card{
+        margin: 30px auto;
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 25px;
+
+        border-radius: 8px;
+        background: #fff;
+
+        box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.1);
+    }
+
+    .root_card ul{
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .root_card li {
+        display: grid;
+        grid-template-columns: 1.5fr 2fr;
+        font-size: 18px;
+    }
+
+    .root_card h2{
+        color: #023E8A;
+        margin-bottom: 45px;
+    }
 
 
-<h2>Announcement Detail</h2>
+</style>
 
-<p>Title: {{ announcement.title }}</p>
-<p>Content: {{ announcement.content }}</p>
-<p>Access: {{ announcement.access }}</p>
-<p>Location: {{ announcement.location }}</p>
+<div class="wrapper_center">
+  <div class="root_card">
+    <h2>Announcement Details</h2>
 
-<p>Created by: {{ announcement.user_profile.username }}</p>
-<p>Created at: {{ announcement.create_date }}</p>
-
+    <ul>
+        <li> 
+            <strong>Title:</strong>
+            <p>{{ announcement.title }}</p>
+        </li>
+        <li> 
+            <strong>Content:</strong>
+            <p>{{ announcement.content }}</p>
+        </li>
+        <li> 
+            <strong>Access:</strong>
+            <p>{{ announcement.access }}</p>
+        </li>
+        <li> 
+            <strong>Location:</strong>
+            <p>{{ announcement.location }}</p>
+        </li>
+        <li> 
+            <strong>Created by:</strong>
+            <p>{{ announcement.user_profile.username  }}</p>
+        </li>
+        <li> 
+            <strong>Created at:</strong>
+            <p>{{ announcement.create_date }}</p>
+        </li>
+    </ul>
+  </div>
+</div>
 {% endblock body%}
-
-
-
-

@@ -7,6 +7,8 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
 from .forms import RegistrationForm, AnnouncementForm, UpdateAnnouncementForm
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.http import require_http_methods
+from django.http import HttpResponseNotAllowed, HttpResponse
 
 @login_required
 def get_user_announcement_list(request):
@@ -78,12 +80,23 @@ def update_announcement(request, id):
 
     return render(request, 'announcement/update_announcement.html', {'form': form, 'announcement': announcement})
     
-@login_required 
+# @login_required 
+# def delete_announcement(request, id):
+#     announcement = get_object_or_404(Announcement, id=id)
+#     announcement.delete()
+#     return redirect('/announcements/user')
+
+
+@login_required
+@require_http_methods(["DELETE"])
 def delete_announcement(request, id):
     announcement = get_object_or_404(Announcement, id=id)
-    announcement.delete()
-    return redirect('/announcements/user')
 
+    if request.method == 'DELETE':
+        announcement.delete()
+        return HttpResponse(status=204)  # Successful DELETE request, no content
+    else:
+        return HttpResponseNotAllowed(['DELETE'])
 
 def register(request):
     if request.method == 'POST':

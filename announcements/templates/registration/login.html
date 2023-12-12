@@ -9,6 +9,11 @@ Login
     border-bottom: 1px solid black;
   }
 
+  label {
+    color: #023E8A;
+    font-weight: 600;
+  }
+
   .root_login {
     margin: auto;
     width: fit-content;
@@ -25,17 +30,28 @@ Login
   }
 
   .loginbtn{
-    margin-left: auto;
+    margin: auto;
+    background-color: #023E8A;
+    border-color: unset;
+  }
+
+  .form_title {
+    color: #023E8A;
+    margin-bottom: 40px;
+  }
+
+  form input {
+    border-color: #023E8A;
   }
 
 </style>
 <div class="wrapper_center">
 
 <div class="root_login">
-  <h2>Логін</h2>
+  <h2 class="form_title">Log In</h2>
   <form method="post">
     {% csrf_token %} {{ form.as_p }}
-    <button class="mBtn loginbtn" type="submit">Увійти</button>
+    <button class="mBtn loginbtn" type="submit">Submit</button>
   </form>
 </div>
 </div>

@@ -52,6 +52,8 @@ paths:
       responses:
         '200':
           description: OK
+      tags:
+        - Announcement  
     post:
       summary: Create a new announcement
       requestBody:
@@ -63,14 +65,18 @@ paths:
       responses:
         '201':
           description: Created
-
+      tags:
+        - Announcement  
+        
   /announcements/public:
     get:
       summary: Get public announcements only
       responses:
         '200':
           description: OK
-
+      tags:
+        - Announcement  
+        
   /announcements/local:
     get:
       summary: Get local announcements only
@@ -79,7 +85,8 @@ paths:
           description: OK
         '403':
           description: Access denied
-
+      tags:
+        - Announcement  
   /announcements/{id}:
     get:
       summary: Get an announcement by ID
@@ -94,6 +101,8 @@ paths:
           description: OK
         '404':
           description: Not Found
+      tags:
+        - Announcement  
     put:
       summary: Update an announcement by ID
       parameters:
@@ -115,6 +124,8 @@ paths:
           description: Access denied
         '404':
           description: Not Found
+      tags:
+        - Announcement  
     delete:
       summary: Delete an announcement by ID
       parameters:
@@ -130,3 +141,50 @@ paths:
           description: Access denied
         '404':
           description: Not Found
+      tags:
+        - Announcement    
+
+  /login:
+    post:
+      summary: Log in
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Unauthorized
+      tags:
+        - User
+
+  /register:
+    post:
+      summary: Register a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Bad Request
+      tags:
+        - User 
+        
+  /logout:
+    post:
+      summary: Log out
+      responses:
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+      tags:
+        - User
