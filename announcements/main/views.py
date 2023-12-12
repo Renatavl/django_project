@@ -59,7 +59,7 @@ def create_announcement(request):
             announcement.user_profile = request.user 
             announcement.save()
 
-            return redirect('home')  # Replace 'home' with the desired redirect URL after successful form submission
+            return redirect('/announcements/user')  # Replace 'home' with the desired redirect URL after successful form submission
     else:
         form = AnnouncementForm()
 
@@ -80,23 +80,12 @@ def update_announcement(request, id):
 
     return render(request, 'announcement/update_announcement.html', {'form': form, 'announcement': announcement})
     
-# @login_required 
-# def delete_announcement(request, id):
-#     announcement = get_object_or_404(Announcement, id=id)
-#     announcement.delete()
-#     return redirect('/announcements/user')
-
-
-@login_required
-@require_http_methods(["DELETE"])
+@login_required 
 def delete_announcement(request, id):
     announcement = get_object_or_404(Announcement, id=id)
+    announcement.delete()
+    return redirect('/announcements/user')
 
-    if request.method == 'DELETE':
-        announcement.delete()
-        return HttpResponse(status=204)  # Successful DELETE request, no content
-    else:
-        return HttpResponseNotAllowed(['DELETE'])
 
 def register(request):
     if request.method == 'POST':
@@ -104,7 +93,7 @@ def register(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('/login')  # Замініть 'home' на ваш шлях при необхідності
+            return redirect('/home')  # Замініть 'home' на ваш шлях при необхідності
     else:
         form = RegistrationForm()
     return render(request, 'registration/register.html', {'form': form})
